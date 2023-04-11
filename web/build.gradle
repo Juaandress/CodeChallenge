@@ -1,0 +1,60 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
+ext {
+    serenityCoreVersion = '3.6.12'
+    serenityCucumberVersion = '3.6.12'
+    lombokVersion = '1.18.8'
+    apacheCommonsVersion = '2.1.1'
+    commonsBeanVersion = '1.9.3'
+    slf4jVersion = '1.7.7'
+    assertJVersion = '3.16.1'
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+        google()
+        dependencies {
+            classpath("net.serenity-bdd:serenity-gradle-plugin:3.5.0")
+        }
+    }
+}
+
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
+    testImplementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '3.5.0'
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit4', version: '2.18.1'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.8.0'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+    testImplementation 'io.cucumber:cucumber-java:6.11.0'
+    testImplementation 'io.cucumber:cucumber-junit:6.11.0'
+    testImplementation 'io.rest-assured:rest-assured:5.2.0'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    implementation 'org.apache.groovy:groovy:4.0.6'
+    implementation "org.assertj:assertj-core:${assertJVersion}"
+}
+
+test {
+    useJUnit()
+}

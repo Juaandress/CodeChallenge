@@ -1,0 +1,3 @@
+rootProject.name = 'pom-project'
+include 'web'
+
