@@ -33,3 +33,8 @@ gradlew.bat clean test
 Above command will trigger all the test on each of the submodules of this framework and 
 then all the result will be aggregated in a single report at the file /customreports/index.html
 
+### Run the test from your IDE or command line:
+````
+gradle test
+````
+This will compile your code, download any required dependencies, and execute the test.
