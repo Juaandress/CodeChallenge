@@ -18,7 +18,7 @@ public class GoogleTasks {
 
 
     public void clickOnSearchBox() {
-//        browserInteractions.waitForElementToBeClickable(googlePage.getSearchBox(), TIMEOUT_10_SECONDS);
+        browserInteractions.waitForElementToBeClickable(googlePage.getSearchBox(), TIMEOUT_10_SECONDS);
         browserInteractions.clickOn(getDriver(), googlePage.getSearchBox());
     }
 
