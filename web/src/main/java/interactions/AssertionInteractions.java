@@ -1,9 +1,9 @@
-package web.interactions;
+package interactions;
 
 
 import lombok.extern.java.Log;
 import org.assertj.core.api.Assertions;
-import web.enums.Errors;
+import enums.Errors;
 
 @Log
 public class AssertionInteractions {
