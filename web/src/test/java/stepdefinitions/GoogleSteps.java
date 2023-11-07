@@ -1,39 +1,35 @@
 package stepdefinitions;
 
+import interactions.BrowserInteractions;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.WebElement;
-import web.interactions.BrowserInteractions;
-import web.tasks.GoogleTasks;
-import web.tasks.OpenWeatherAPITasks;
-import web.userinterfaces.GooglePage;
+import pages.GooglePage;
+import tasks.GoogleTasks;
+import tasks.OpenWeatherAPITasks;
 
 import java.util.List;
 
-public class GoogleSteps extends GooglePage {
+import static core.WebDriverSingleton.getDriver;
 
-    @Steps
-    private GoogleTasks googleTasks;
+public class GoogleSteps {
+    GooglePage googlePage = new GooglePage(getDriver());
 
-    @Steps
-    BrowserInteractions browserInteractions;
+    GoogleTasks googleTasks = new GoogleTasks(getDriver());
 
-    @Steps
-    OpenWeatherAPITasks openWeatherAPITasks;
-
-    @Given("I am in Google Search Page")
-    public void iGoToGoogleSearchPage() {
-        googleTasks.goToGoogleSearchPage();
+    public GoogleSteps(GoogleTasks googleTasks) {
+        this.googleTasks = googleTasks;
     }
+    BrowserInteractions browserInteractions;
+    OpenWeatherAPITasks openWeatherAPITasks;
 
     @And("I Enter the text {string} in the Search bar and submit")
     public void iEnterTheTextInTheSearchBarAndSubmit(String location) {
         googleTasks.clickOnSearchBox();
         googleTasks.searchForItem(location);
-        List<WebElement> searchButton = getSearchButton();
-        googleTasks.clickOn(searchButton.get(0));
+        List<WebElement> searchButton = googlePage.getSearchButton();
+        WebElement element = searchButton.get(0);
+        browserInteractions.clickOn(getDriver(), element);
     }
 
     @And("I save the Temperature in the selected location from the results and store the value in an object")
