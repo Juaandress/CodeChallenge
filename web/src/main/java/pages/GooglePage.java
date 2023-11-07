@@ -1,14 +1,18 @@
-package web.userinterfaces;
+package pages;
 
 import lombok.Getter;
-import net.serenitybdd.core.pages.PageObject;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 @Getter
-public class GooglePage extends PageObject {
+public class GooglePage extends BasePage {
+
+    public GooglePage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = ".gLFyf#APjFqb")
     private WebElement searchBox;
@@ -21,4 +25,6 @@ public class GooglePage extends PageObject {
 
     @FindBy(css = ".lnXdpd[alt*=\"Google\"]")
     private WebElement googleLogo;
+
+
 }
