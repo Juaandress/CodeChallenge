@@ -1,8 +1,6 @@
 defaultTasks 'clean', 'test', 'aggregate'
 
 ext {
-    serenityCoreVersion = '3.6.12'
-    serenityCucumberVersion = '3.6.12'
     lombokVersion = '1.18.8'
     apacheCommonsVersion = '2.1.1'
     commonsBeanVersion = '1.9.3'
@@ -38,16 +36,23 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.8.3'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-http-jdk-client', version: '4.8.3'
     testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
-    testImplementation 'io.cucumber:cucumber-java:6.11.0'
-    testImplementation 'io.cucumber:cucumber-junit:6.11.0'
+    implementation 'io.cucumber:cucumber-java:7.14.0'
+    implementation 'io.cucumber:cucumber-junit:7.14.0'
+    implementation 'io.cucumber:cucumber-picocontainer:7.14.0'
+    testImplementation 'io.cucumber:cucumber-java:7.14.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.14.0'
+    testImplementation 'io.cucumber:cucumber-picocontainer:7.14.0'
     testImplementation 'io.rest-assured:rest-assured:5.2.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     implementation 'org.apache.groovy:groovy:4.0.6'
-    implementation "org.assertj:assertj-core:${assertJVersion}"
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation("org.assertj:assertj-core:3.11.1")
 }
 
 test {
