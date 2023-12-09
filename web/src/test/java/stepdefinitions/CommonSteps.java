@@ -1,23 +1,32 @@
 package stepdefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import net.serenitybdd.core.pages.PageObject;
-import org.openqa.selenium.support.PageFactory;
+import interactions.BrowserInteractions;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
-public class CommonSteps extends PageObject {
+import static core.WebDriverSingleton.getDriver;
 
-    @Before
-    public void setUp() {
-        PageFactory.initElements(getDriver(), this);
+public class CommonSteps {
+
+    BrowserInteractions browserInteractions = new BrowserInteractions();
+
+    @Given("I go to page: {string} using {string} browser")
+    public void iGoToPage(String pageName, String browser) {
+        System.setProperty("webdriver.type", browser);
+        getDriver(browser).manage().window().maximize();
+        getDriver(browser).get(pageName);
     }
 
-    @After
-    public void tearDown() {
-        getDriver().quit();
+    @Given("I go to page: {string}")
+    public void iGoToPage(String pageName) {
+        getDriver(null).manage().window().maximize();
+        getDriver(null).get(pageName);
     }
 
-
+    @Then("I validate title of the page is {string}")
+    public void iValidateTitleOfThePageIs(String page) {
+        browserInteractions.validateTitleOfThePage(page);
+    }
 }
 
 

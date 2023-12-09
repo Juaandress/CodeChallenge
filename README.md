@@ -4,7 +4,7 @@
 This Automation Framework of Testing is for a code challenge to show some of my skills, 
 you are very welcome to see every part of the project
 ## Prerequisites
-[Java Development Kit 8](https://www.oracle.com/ar/java/technologies/javase/javase8-archive-downloads.html)  
+[Java Development Kit 11](https://www.oracle.com/ar/java/technologies/javase/jdk11-archive-downloads.html)  
 [Maven 3.9.1](https://maven.apache.org/download.cgi)  
 [Gradle 7.4](https://gradle.org/next-steps/?version=7.4&format=all)  
 [GIT](https://git-scm.com/downloads)

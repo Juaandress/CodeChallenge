@@ -1,16 +1,14 @@
 package runner;
 
+import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import io.cucumber.junit.CucumberSerenityRunner;
-import net.thucydides.core.pages.PageObject;
 import org.junit.runner.RunWith;
 
-@RunWith(CucumberSerenityRunner.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features"}
-        , glue = {"stepdefinitions"}
-        , tags = "@GoogleSearch"
+        features = {"src/test/resources/features/"},
+        glue = {"stepdefinitions"},
+        tags = "@ClaroUS"
 )
-public class Runner extends PageObject {
+public class Runner {
 }
-
