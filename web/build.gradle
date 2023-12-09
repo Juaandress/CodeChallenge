@@ -44,15 +44,13 @@ dependencies {
     implementation 'io.cucumber:cucumber-java:7.14.0'
     implementation 'io.cucumber:cucumber-junit:7.14.0'
     implementation 'io.cucumber:cucumber-picocontainer:7.14.0'
-    testImplementation 'io.cucumber:cucumber-java:7.14.0'
-    testImplementation 'io.cucumber:cucumber-junit:7.14.0'
-    testImplementation 'io.cucumber:cucumber-picocontainer:7.14.0'
     testImplementation 'io.rest-assured:rest-assured:5.2.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     implementation 'org.apache.groovy:groovy:4.0.6'
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
     implementation("org.assertj:assertj-core:3.11.1")
+
 }
 
 test {
